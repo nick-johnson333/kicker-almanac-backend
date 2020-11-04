@@ -13,8 +13,9 @@ client.connect(err => {
 	}
 });
 const app = express(); 
+const PORT = process.env.PORT || 4000;
 
-app.set('port',process.env.PORT || 4000);
+app.set('port',POST);
 
 app.get('/user_suggestions', (req, res, next) => {
 	client.query('SELECT * FROM user_suggestions', [], (err, result) => {
@@ -38,6 +39,6 @@ app.get('/', (req, res, next) => {
 
 
 
-app.listen(4000,  () => {
+app.listen(PORT,  () => {
     console.log('Server is running.. on Port 4000');
 });
